@@ -2,15 +2,6 @@
 • Database, schema, warehouse, and stage creation
 --*/
 
-USE ROLE SECURITYADMIN;
-
-CREATE ROLE cortex_user_role;
-GRANT DATABASE ROLE SNOWFLAKE.CORTEX_USER TO ROLE cortex_user_role;
-
-GRANT ROLE cortex_user_role TO USER <user>;
-
-USE ROLE sysadmin;
-
 -- Create demo database
 CREATE OR REPLACE DATABASE cortex_analyst_demo;
 
@@ -25,15 +16,6 @@ CREATE OR REPLACE WAREHOUSE cortex_analyst_wh
     AUTO_RESUME = TRUE
     INITIALLY_SUSPENDED = TRUE
 COMMENT = 'Warehouse for Cortex Analyst demo';
-
-GRANT USAGE ON WAREHOUSE cortex_analyst_wh TO ROLE cortex_user_role;
-GRANT OPERATE ON WAREHOUSE cortex_analyst_wh TO ROLE cortex_user_role;
-
-GRANT OWNERSHIP ON SCHEMA cortex_analyst_demo.revenue_timeseries TO ROLE cortex_user_role;
-GRANT OWNERSHIP ON DATABASE cortex_analyst_demo TO ROLE cortex_user_role;
-
-
-USE ROLE cortex_user_role;
 
 -- Use the created warehouse
 USE WAREHOUSE cortex_analyst_wh;
