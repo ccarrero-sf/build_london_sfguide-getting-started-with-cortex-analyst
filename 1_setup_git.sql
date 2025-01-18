@@ -15,7 +15,6 @@ CREATE OR REPLACE GIT REPOSITORY git_lab1_cortex_analyst
 -- Make sure we get the latest files
 ALTER GIT REPOSITORY git_lab1_cortex_analyst FETCH;
 
-
 SELECT SYSTEM$BEHAVIOR_CHANGE_BUNDLE_STATUS('2024_08');
 -- This needs to be enabled to use later the Semantic Model Generator SIS App
 SELECT SYSTEM$ENABLE_BEHAVIOR_CHANGE_BUNDLE('2024_08');
