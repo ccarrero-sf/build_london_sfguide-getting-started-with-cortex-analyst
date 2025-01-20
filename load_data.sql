@@ -2,13 +2,25 @@
 • looad data into tables
 --*/
 
-USE ROLE CORTEX_USER_ROLE;
 USE DATABASE CORTEX_ANALYST_DEMO;
 USE SCHEMA CORTEX_ANALYST_DEMO.REVENUE_TIMESERIES;
 USE WAREHOUSE CORTEX_ANALYST_WH;
 
+-- We could load the files from GIT repository but let's show how to copy them here:
+COPY FILES
+  INTO @CORTEX_ANALYST_DEMO.REVENUE_TIMESERIES.RAW_DATA
+  FROM @GIT_BUILD_LONDON.LABS.GIT_LAB1_CORTEX_ANALYST/branches/main/data
+  PATTERN='.*[.]csv';
+;
+
+COPY FILES
+  INTO @CORTEX_ANALYST_DEMO.REVENUE_TIMESERIES.RAW_DATA
+  FROM @GIT_BUILD_LONDON.LABS.GIT_LAB1_CORTEX_ANALYST/branches/main/
+  FILES = (revenue_timeseries.yaml);
+
+-- Load data into the tables
 COPY INTO CORTEX_ANALYST_DEMO.REVENUE_TIMESERIES.DAILY_REVENUE
-FROM @raw_data
+FROM @raw_data/data/
 FILES = ('daily_revenue.csv')
 FILE_FORMAT = (
     TYPE=CSV,
@@ -30,7 +42,7 @@ FORCE = TRUE ;
 
 
 COPY INTO CORTEX_ANALYST_DEMO.REVENUE_TIMESERIES.PRODUCT_DIM
-FROM @raw_data
+FROM @raw_data/data/
 FILES = ('product.csv')
 FILE_FORMAT = (
     TYPE=CSV,
@@ -52,7 +64,7 @@ FORCE = TRUE ;
 
 
 COPY INTO CORTEX_ANALYST_DEMO.REVENUE_TIMESERIES.REGION_DIM
-FROM @raw_data
+FROM @raw_data/data/
 FILES = ('region.csv')
 FILE_FORMAT = (
     TYPE=CSV,

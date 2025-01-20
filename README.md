@@ -44,6 +44,44 @@ This worksheet is a simplification of the original one from the main Quickstart 
 
 In that worksheet, click on "Run All".
 
+## 4.- Ingest the Revenue Data and Semantic Model YAML
+
+Similar to the previous step, run in a worksheet the SQL file [load_data.sql]
+
+## 5.- Integrate Cortex Search
+
+And run cortex_search_create.sql as you did before
+
+## 6.- Create Streamlit App
+
+In following steps we will see how to also automaticaly create an Streamlit App, so in this step we are going to create it in a manual format so you can also understand this step.
+
+Copy the code from: [cortex_analyst_sis_demo_app.py](https://github.com/ccarrero-sf/build_london_sfguide-getting-started-with-cortex-analyst/blob/main/cortex_analyst_sis_demo_app.py)
+
+Click on Projects -> Streamlit and on the right click on + Streamlit App button.
+![image](img/streamlit.png)
+
+Give the App a name and choose:
+- App location: CORTEX_ANALYST_DEMO / REVENUE_TIMESERIES
+- App warehouse: CORTEX_ANALYST_WH
+
+Click on Create button:
+
+![image](img/streamlit2.png)
+
+This creates an app from a template. Just remove the default code and paste the code you copied before.
+
+## 7.- Ask Questions and Review Semantic Model Details
+
+Explore your data with questions and review the [Semantic Model file](https://github.com/ccarrero-sf/build_london_sfguide-getting-started-with-cortex-analyst/blob/main/revenue_timeseries.yaml)
+
+## 8.- Install the Semantic Model Generator
+
+This is the location of the [Semantic Model Generator](https://github.com/Snowflake-Labs/semantic-model-generator). As you can see there are different ways to install it. For this Bootcamp we have already copied the code into the repository to use the Snowflake Native Git integration.
+
+As you have done before, select the SQL script "sissetup_snowsightgit.sql", copy into a Worksheet and run it. This will automatically create the Streamlit in Snowflake app to you.
+
+
 
 
 
