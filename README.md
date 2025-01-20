@@ -20,7 +20,7 @@ For this Bootcamp make sure you select these options:
 
 ![image](img/trial_account.png)
 
-## 2.- Logging into your new account and setup Git
+## 2.- Logging Into your Account and Setup Snowflake Native Git Integration
 
 We will use Snowflake Native Git integration to point to this repository. 
 
