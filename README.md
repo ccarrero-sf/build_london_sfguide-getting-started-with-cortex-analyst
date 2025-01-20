@@ -91,6 +91,51 @@ Follow your instructor instructions or explore yourself to:
 
 ![image](img/semantic_model.png)
 
+## 9.- Create a New Semantic Model
+
+You can explore how to create a new semantic model for the database that was previously loaded. Click on <b>Create a new semantic model</b>.
+
+Select the database we previously created CORTEX_ANALYST_DEMO, the schema REVENUE_TIME_SERIES and the three tables available.
+
+Click on Submit. After a few minutes it will create a model for you. As you can see, there are soem fields where will be convenient to add some specific information. Let's review the model we already had created.
+
+## 10.- Edit an Existing Semantic Model
+
+Let's open and edit the Semantic Model we had in our repository.
+
+Click on <b>Edit an existing semantic model</b>.
+
+Select te semantic model we already had:
+
+![image](img/edit_semantic_model.png)
+
+Now try to change or add some business expressions and test them!
+
+We have in our semantic model the definition of <daily_profit> and it is the difference between revenue and expenses. We provide the expression for that. As one example (and this is just imagination!), let's pretend that the business people call it sometimes <b>daily snowfall</b>. 
+
+What happens if we ask the question: "What is the monthly aggregated daily snowfall for last year?"
+
+There is no information about Snowfall in the semantic model so Cortex Analyst cannot figure out the right answer.
+
+![image](img/question_no_context.png)
+
+Now let's add the synonyms for daily _profit it into the semantic model:
+
+      - name: daily_profit
+        <b>synonyms:
+            - daily snowfall</b>
+        description: profit is the difference between revenue and expenses.
+        expr: revenue - cogs
+        data_type: number
+
+Click on Validate button and ask the same question again. Now Cortex Analyst should be able to understand the question:
+
+![image](img/question_with_context.png)
+
+
+
+
+
 
 
 
