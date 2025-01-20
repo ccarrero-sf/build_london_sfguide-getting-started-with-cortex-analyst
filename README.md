@@ -37,7 +37,7 @@ If you refresh Databases on the left, you will see now your GIT_BUILD_LONDON dat
 
 ## 3.- Setup the Snowflake Environment
 
-Taking advantage of the Git integration, find "create_snowflake_objects.sql", click on "...." and select "Copy into worksheet"
+Taking advantage of the Git integration, find <b>create_snowflake_objects.sql</b>, click on "...." and select "Copy into worksheet"
 ![image](img/create_objects.png)
 
 This worksheet is a simplification of the original one from the main Quickstart as we avoid creating a specific ROLE as just use ACCOUNTADMIN for simplicity.
@@ -81,7 +81,15 @@ Explore your data with questions and review the [Semantic Model file](https://gi
 
 This is the location of the [Semantic Model Generator](https://github.com/Snowflake-Labs/semantic-model-generator) repository. As you can see there are different ways to install it. For this Bootcamp we have already copied the code into the repository to use the Snowflake Native Git integration to install it.
 
-As you have done before, select the SQL script "sissetup_snowsightgit.sql", copy into a Worksheet and run it. This will automatically create the Streamlit in Snowflake app to you.
+As you have done before, select the SQL script <b>sissetup_snowsightgit.sql</b>, copy into a Worksheet and run it. This will automatically create the Streamlit in Snowflake app to you.
+
+You can go to Projects -> Streamlit and click on <b>Semantic Model Generator</b> app. 
+
+Follow your instructor instructions or explore yourself to:
+- Generate a new Semantic Model
+- Explore and test an existing one
+
+![image](img/semantic_model.png)
 
 
 
